@@ -85,7 +85,7 @@ window.QUESTIONS = [
       "4 years",
       "5 years"
     ],
-    "correct": 3
+    "correct": 0
   },
   {
     "number": 9,
@@ -162,7 +162,7 @@ window.QUESTIONS = [
       "Fundamentals of Electronics and Electricity",
       "Amateur Radio Practice"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "number": 16,
@@ -272,7 +272,7 @@ window.QUESTIONS = [
       "Technician Class",
       "Foundation Class"
     ],
-    "correct": 3
+    "correct": 0
   },
   {
     "number": 26,
@@ -294,7 +294,7 @@ window.QUESTIONS = [
       "Class C",
       "Class D"
     ],
-    "correct": 2
+    "correct": 1
   },
   {
     "number": 28,
@@ -316,7 +316,7 @@ window.QUESTIONS = [
       "Anybody transmits anytime",
       "Non-interference basis"
     ],
-    "correct": 3
+    "correct": 1
   },
   {
     "number": 30,
@@ -481,7 +481,7 @@ window.QUESTIONS = [
       "SOS",
       "MAYDAY"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "number": 45,
@@ -580,7 +580,7 @@ window.QUESTIONS = [
       "DU9XX portable 6",
       "DU9XX portable"
     ],
-    "correct": 0
+    "correct": 3
   },
   {
     "number": 54,
@@ -646,7 +646,7 @@ window.QUESTIONS = [
       "3 months",
       "4 months"
     ],
-    "correct": 2
+    "correct": 1
   },
   {
     "number": 60,
@@ -679,7 +679,7 @@ window.QUESTIONS = [
       "25",
       "5"
     ],
-    "correct": 2
+    "correct": 1
   },
   {
     "number": 63,
@@ -712,7 +712,7 @@ window.QUESTIONS = [
       "Elements I & II",
       "Element IV"
     ],
-    "correct": 0
+    "correct": 1
   },
   {
     "number": 66,
@@ -723,7 +723,7 @@ window.QUESTIONS = [
       "Elements I & II",
       "Element IV"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "number": 67,
@@ -745,7 +745,7 @@ window.QUESTIONS = [
       "1ABC",
       "ABC"
     ],
-    "correct": 2
+    "correct": 3
   },
   {
     "number": 69,
@@ -1009,7 +1009,7 @@ window.QUESTIONS = [
       "1 minute",
       "Unlimited"
     ],
-    "correct": 2
+    "correct": 1
   },
   {
     "number": 93,
@@ -1042,7 +1042,7 @@ window.QUESTIONS = [
       "5 years",
       "until the license expires"
     ],
-    "correct": 1
+    "correct": 0
   },
   {
     "number": 96,
@@ -1064,7 +1064,7 @@ window.QUESTIONS = [
       "NTC",
       "NHA"
     ],
-    "correct": 3
+    "correct": 2
   },
   {
     "number": 98,
@@ -1097,7 +1097,7 @@ window.QUESTIONS = [
       "3",
       "2"
     ],
-    "correct": 1
+    "correct": 2
   }
 ];
 
