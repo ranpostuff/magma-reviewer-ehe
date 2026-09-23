@@ -1116,13 +1116,19 @@ window.QUESTIONS = [
   const feedback = document.querySelector("#feedback");
   const nextButton = document.querySelector("#nextButton");
   const finalScore = document.querySelector("#finalScore");
+  const finalTotal = document.querySelector("#finalTotal");
   const finalPercent = document.querySelector("#finalPercent");
   const resultMessage = document.querySelector("#resultMessage");
+  const rangeStart = document.querySelector("#rangeStart");
+  const rangeEnd = document.querySelector("#rangeEnd");
+  const rangeError = document.querySelector("#rangeError");
 
   let order = [];
   let current = 0;
   let score = 0;
   let answered = false;
+  let activeStart = 1;
+  let activeEnd = 100;
 
   function shuffled(items) {
     const copy = [...items];
@@ -1133,8 +1139,29 @@ window.QUESTIONS = [
     return copy;
   }
 
-  function startQuiz() {
-    order = shuffled(window.QUESTIONS);
+  function readRange() {
+    const start = Number(rangeStart.value);
+    const end = Number(rangeEnd.value);
+    if (!Number.isInteger(start) || !Number.isInteger(end) || start < 1 || end > 100 || start > end) {
+      rangeError.textContent = "Enter a valid range from 1 to 100. The first number must not be greater than the second.";
+      rangeError.hidden = false;
+      return null;
+    }
+    rangeError.hidden = true;
+    return { start, end };
+  }
+
+  function startQuiz(useEnteredRange = false) {
+    if (useEnteredRange) {
+      const selected = readRange();
+      if (!selected) return;
+      activeStart = selected.start;
+      activeEnd = selected.end;
+    }
+    const selectedQuestions = window.QUESTIONS.filter(
+      (item) => item.number >= activeStart && item.number <= activeEnd,
+    );
+    order = shuffled(selectedQuestions);
     current = 0;
     score = 0;
     answered = false;
@@ -1211,6 +1238,7 @@ window.QUESTIONS = [
     quizPanel.hidden = true;
     resultsPanel.hidden = false;
     finalScore.textContent = String(score);
+    finalTotal.textContent = String(order.length);
     finalPercent.textContent = `${percent}% correct`;
     resultMessage.textContent = percent >= 90
       ? "Excellent work. You have a strong command of the reviewer."
@@ -1221,8 +1249,12 @@ window.QUESTIONS = [
   }
 
   nextButton.addEventListener("click", advance);
-  document.querySelector("#restartTop").addEventListener("click", startQuiz);
-  document.querySelector("#restartResult").addEventListener("click", startQuiz);
+  document.querySelector("#applyRange").addEventListener("click", () => startQuiz(true));
+  document.querySelector("#restartTop").addEventListener("click", () => startQuiz(false));
+  document.querySelector("#restartResult").addEventListener("click", () => startQuiz(false));
+  rangeEnd.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") startQuiz(true);
+  });
 
   document.addEventListener("keydown", (event) => {
     if (!quizPanel.hidden && !answered && /^[1-4]$/.test(event.key)) {

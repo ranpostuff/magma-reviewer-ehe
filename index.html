@@ -19,6 +19,23 @@
         <button class="restart-button" id="restartTop" type="button">Shuffle &amp; restart</button>
       </header>
 
+      <section class="range-controls" aria-labelledby="rangeTitle">
+        <div class="range-copy">
+          <h2 id="rangeTitle">Choose the questions to practice</h2>
+          <p>Enter a starting and ending question. The selected questions will be shuffled.</p>
+        </div>
+        <div class="range-fields">
+          <label>From
+            <input id="rangeStart" type="number" min="1" max="100" value="1" inputmode="numeric" />
+          </label>
+          <label>To
+            <input id="rangeEnd" type="number" min="1" max="100" value="100" inputmode="numeric" />
+          </label>
+          <button class="range-button" id="applyRange" type="button">Shuffle this range</button>
+        </div>
+        <p class="range-error" id="rangeError" role="alert" hidden></p>
+      </section>
+
       <section class="quiz-panel" id="quizPanel" aria-live="polite">
         <div class="status-row">
           <p id="progressText">Question 1 of 100</p>
@@ -42,7 +59,7 @@
       <section class="results-panel" id="resultsPanel" hidden>
         <p class="eyebrow">REVIEW COMPLETE</p>
         <h2>Your final score</h2>
-        <p class="result-score"><span id="finalScore">0</span><small>/100</small></p>
+        <p class="result-score"><span id="finalScore">0</span><small>/<span id="finalTotal">100</span></small></p>
         <p class="result-percent" id="finalPercent">0% correct</p>
         <p class="result-message" id="resultMessage"></p>
         <button class="next-button" id="restartResult" type="button">Try a new shuffled order</button>
