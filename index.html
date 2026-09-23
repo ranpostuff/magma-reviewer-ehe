@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101a2f" />
+    <meta name="description" content="A shuffled 100-question amateur radio practice reviewer with instant feedback and a final score." />
+    <title>Amateur Radio Reviewer</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101a2f'/%3E%3Cpath d='M18 43h28M24 43l8-26 8 26M27 33h10' fill='none' stroke='%23f9c74f' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">ELEMENT II</p>
+          <h1>Amateur Radio Reviewer</h1>
+        </div>
+        <button class="restart-button" id="restartTop" type="button">Shuffle &amp; restart</button>
+      </header>
+
+      <section class="quiz-panel" id="quizPanel" aria-live="polite">
+        <div class="status-row">
+          <p id="progressText">Question 1 of 100</p>
+          <p id="scoreText">Score 0</p>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <article class="question-card">
+          <p class="source-number" id="sourceNumber"></p>
+          <h2 id="questionText"></h2>
+          <div class="answers" id="answers" role="group" aria-label="Answer choices"></div>
+          <div class="feedback" id="feedback" role="status" hidden></div>
+          <button class="next-button" id="nextButton" type="button" hidden>Next question</button>
+        </article>
+
+        <p class="keyboard-hint">Tip: press 1–4 to answer, then Enter for the next question.</p>
+      </section>
+
+      <section class="results-panel" id="resultsPanel" hidden>
+        <p class="eyebrow">REVIEW COMPLETE</p>
+        <h2>Your final score</h2>
+        <p class="result-score"><span id="finalScore">0</span><small>/100</small></p>
+        <p class="result-percent" id="finalPercent">0% correct</p>
+        <p class="result-message" id="resultMessage"></p>
+        <button class="next-button" id="restartResult" type="button">Try a new shuffled order</button>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
